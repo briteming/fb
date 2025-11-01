@@ -4,9 +4,9 @@ env:
   # hexo源文件仓库
   BLOG_SOURCE: flytam/blog-source
   # issue链接
-  ISSUE_URL: https://github.com/flytam/blog/issues
+  ISSUE_URL: https://github.com/briteming/fb/issues
   # blog部署的页面
-  BLOG: flytam/blog
+  BLOG: briteming/fb
   # ${{ github.event.issue.user.login }}
 
 on:
@@ -29,7 +29,7 @@ jobs:
           ref: 'main'
           token: ${{ secrets.token }}
       - name: issue生成 hexo文章
-        uses: flytam/github-issue-to-hexo@main
+        uses: briteming/fgith@main
         with:
           issue_url: ${{ env.ISSUE_URL }}
           output: 'source/_posts'
@@ -39,7 +39,7 @@ jobs:
           echo $(date) > update.md
           git add .
           git config user.name "issue-to-hexo bot"
-          git config user.email "tanjiahui2015@foxmail.com"
+          git config user.email "briteming@gmail.com"
           git commit -m "Add a post"
       - name: 推送hexo源文件
         uses: ad-m/github-push-action@master
